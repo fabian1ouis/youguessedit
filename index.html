@@ -1,22 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Guessed It!</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Number Guessing Game</h1>
-        <p>Guess a number between 1 and 100</p>
-        <input type="number" id="guessInput" min="1" max="100">
-        <button id="submitBtn">Submit Guess</button>
-        <button id="resetBtn">New Game</button>
-        <div id="message"></div>
-        <div id="attempts"></div>
-    </div>
-    <script src="script.js"></script>
-</body>
-
-</html>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Enhanced Number Guessing Game by Fabian Louis&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="theme-toggle"&gt;
+        &lt;button id="themeBtn"&gt;🌙 Dark Mode&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="container"&gt;
+        &lt;h1&gt;🎮 Number Guessing Game&lt;/h1&gt;
+        &lt;p class="subtitle"&gt;by Fabian Louis&lt;/p&gt;
+        
+        &lt;div class="difficulty-selector"&gt;
+            &lt;button class="diff-btn active" data-level="easy"&gt;Easy (1-50)&lt;/button&gt;
+            &lt;button class="diff-btn" data-level="medium"&gt;Medium (1-100)&lt;/button&gt;
+            &lt;button class="diff-btn" data-level="hard"&gt;Hard (1-500)&lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="timer-toggle"&gt;
+            &lt;label&gt;
+                &lt;input type="checkbox" id="timerMode"&gt;
+                Timer Mode (60s)
+            &lt;/label&gt;
+        &lt;/div&gt;
+        
+        &lt;div id="timer" class="timer hidden"&gt;Time: &lt;span id="timeLeft"&gt;60&lt;/span&gt;s&lt;/div&gt;
+        
+        &lt;div class="game-area"&gt;
+            &lt;p id="rangeDisplay"&gt;Guess a number between 1 and 50&lt;/p&gt;
+            &lt;input type="number" id="guessInput" min="1" max="50"&gt;
+            &lt;div class="button-group"&gt;
+                &lt;button id="submitBtn" class="btn-primary"&gt;Submit Guess&lt;/button&gt;
+                &lt;button id="hintBtn" class="btn-secondary"&gt;💡 Hint&lt;/button&gt;
+                &lt;button id="resetBtn" class="btn-reset"&gt;New Game&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div id="message"&gt;&lt;/div&gt;
+            &lt;div id="hint" class="hint"&gt;&lt;/div&gt;
+            &lt;div class="stats"&gt;
+                &lt;span id="attempts"&gt;Attempts: 0&lt;/span&gt;
+                &lt;span id="score"&gt;Score: 0&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="statistics"&gt;
+            &lt;h3&gt;Your Statistics&lt;/h3&gt;
+            &lt;div class="stat-item"&gt;Games Played: &lt;span id="gamesPlayed"&gt;0&lt;/span&gt;&lt;/div&gt;
+            &lt;div class="stat-item"&gt;Games Won: &lt;span id="gamesWon"&gt;0&lt;/span&gt;&lt;/div&gt;
+            &lt;div class="stat-item"&gt;Win Rate: &lt;span id="winRate"&gt;0%&lt;/span&gt;&lt;/div&gt;
+            &lt;div class="stat-item"&gt;Best Score: &lt;span id="bestScore"&gt;0&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="leaderboard"&gt;
+            &lt;h3&gt;🏆 Leaderboard&lt;/h3&gt;
+            &lt;div id="leaderboardList"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;footer class="footer"&gt;
+            &lt;p&gt;Created by &lt;strong&gt;Fabian Louis&lt;/strong&gt;&lt;/p&gt;
+            &lt;p&gt;📧 &lt;a href="mailto:fabianlouis99@gmail.com"&gt;fabianlouis99@gmail.com&lt;/a&gt;&lt;/p&gt;
+            &lt;p&gt;📱 &lt;a href="tel:+254718112530"&gt;+254 718 112 530&lt;/a&gt;&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+    
+    &lt;audio id="correctSound" src="correct.mp3"&gt;&lt;/audio&gt;
+    &lt;audio id="wrongSound" src="wrong.mp3"&gt;&lt;/audio&gt;
+    &lt;audio id="winSound" src="win.mp3"&gt;&lt;/audio&gt;
+    
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
