@@ -1,22 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Guessed It!</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Number Guessing Game</h1>
-        <p>Guess a number between 1 and 100</p>
-        <input type="number" id="guessInput" min="1" max="100">
-        <button id="submitBtn">Submit Guess</button>
-        <button id="resetBtn">New Game</button>
-        <div id="message"></div>
-        <div id="attempts"></div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta name="description" content="Number Guessing Game - A fun and interactive game by Fabian Louis"&gt;
+    &lt;meta name="author" content="Fabian Louis"&gt;
+    &lt;title&gt;Number Guessing Game | Fabian Louis Portfolio&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Developer Branding --&gt;
+    &lt;header class="developer-header"&gt;
+        &lt;div class="brand"&gt;
+            &lt;h1&gt;🎮 Number Guessing Game&lt;/h1&gt;
+            &lt;p class="tagline"&gt;Crafted by Fabian Louis&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
 
+    &lt;div class="container"&gt;
+        &lt;!-- Game Settings --&gt;
+        &lt;div class="settings-panel"&gt;
+            &lt;div class="setting-group"&gt;
+                &lt;label for="difficulty"&gt;Difficulty:&lt;/label&gt;
+                &lt;select id="difficulty"&gt;
+                    &lt;option value="easy"&gt;Easy (1-50)&lt;/option&gt;
+                    &lt;option value="medium" selected&gt;Medium (1-100)&lt;/option&gt;
+                    &lt;option value="hard"&gt;Hard (1-500)&lt;/option&gt;
+                    &lt;option value="expert"&gt;Expert (1-1000)&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="setting-group"&gt;
+                &lt;label&gt;
+                    &lt;input type="checkbox" id="timerMode"&gt;
+                    Timer Mode (60s)
+                &lt;/label&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="setting-group"&gt;
+                &lt;label&gt;
+                    &lt;input type="checkbox" id="darkMode"&gt;
+                    Dark Mode
+                &lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Game Area --&gt;
+        &lt;div class="game-card"&gt;
+            &lt;div class="game-info"&gt;
+                &lt;div class="info-item"&gt;
+                    &lt;span class="label"&gt;Range:&lt;/span&gt;
+                    &lt;span id="rangeDisplay"&gt;1 - 100&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="info-item"&gt;
+                    &lt;span class="label"&gt;Attempts:&lt;/span&gt;
+                    &lt;span id="attempts"&gt;0&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="info-item"&gt;
+                    &lt;span class="label"&gt;Score:&lt;/span&gt;
+                    &lt;span id="score"&gt;1000&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="info-item timer-display" id="timerDisplay" style="display: none;"&gt;
+                    &lt;span class="label"&gt;Time:&lt;/span&gt;
+                    &lt;span id="timer"&gt;60&lt;/span&gt;s
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="message-box" id="message"&gt;
+                I'm thinking of a number. Can you guess it?
+            &lt;/div&gt;
+
+            &lt;div class="input-group"&gt;
+                &lt;input 
+                    type="number" 
+                    id="guessInput" 
+                    placeholder="Enter your guess"
+                    min="1"
+                    max="100"
+                &gt;
+                &lt;button id="guessBtn"&gt;Guess&lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;div class="hint-box" id="hintBox" style="display: none;"&gt;&lt;/div&gt;
+
+            &lt;div class="guess-history" id="guessHistory"&gt;&lt;/div&gt;
+
+            &lt;button id="resetBtn" class="reset-btn"&gt;New Game&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Leaderboard --&gt;
+        &lt;div class="leaderboard"&gt;
+            &lt;h3&gt;🏆 Top Scores&lt;/h3&gt;
+            &lt;div id="leaderboardList"&gt;
+                &lt;p class="empty-leaderboard"&gt;No scores yet. Be the first!&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Footer with Developer Info --&gt;
+    &lt;footer class="developer-footer"&gt;
+        &lt;div class="footer-content"&gt;
+            &lt;div class="developer-info"&gt;
+                &lt;h3&gt;👨‍💻 Fabian Louis&lt;/h3&gt;
+                &lt;p&gt;Full-Stack Developer | Game Enthusiast&lt;/p&gt;
+                &lt;div class="contact-links"&gt;
+                    &lt;a href="mailto:fabianlouis99@gmail.com"&gt;📧 fabianlouis99@gmail.com&lt;/a&gt;
+                    &lt;a href="tel:+254718112530"&gt;📱 +254 718 112 530&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="footer-note"&gt;
+                &lt;p&gt;Built with ❤️ using HTML, CSS, and JavaScript&lt;/p&gt;
+                &lt;p&gt;&amp;copy; 2025 Fabian Louis. All rights reserved.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
