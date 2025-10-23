@@ -7,26 +7,39 @@
 ehthumbs.db
 Thumbs.db
 
-# IDE and Editor Files
+# Editor Files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.project
+.settings/
 
-# Logs
-*.log
+# Node modules (if you add any build tools later)
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Dependency directories
-node_modules/
-
-# Optional: If you add any config files with sensitive data
-config.js
+# Environment variables
 .env
+.env.local
+.env.production
 
-# Build outputs (if you later add build tools)
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Build outputs (for future expansion)
 dist/
 build/
+
+# Package manager lock files (optional)
+package-lock.json
+yarn.lock
