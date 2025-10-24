@@ -27,3 +27,8 @@ A simple number guessing game I created where the player tries to guess a random
 4. Player continues guessing until they find the correct number
 5. Game displays total number of attempts
 6. Player can reset and play again
+
+<p align="center">
+  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" alt="waving hand"/>
+  Thanks for visiting — and you guessed it! happy gaming 🚀
+</p>
